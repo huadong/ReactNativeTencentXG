@@ -1,23 +1,45 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+    }
+}
+
 apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [
+            XG_ACCESS_ID:"注册应用的accessid",
+            XG_ACCESS_KEY : "注册应用的accesskey",
+        ]
     }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     compile "com.facebook.react:react-native:0.20.+"
-    compile files('libs/Xg_sdk_v2.42_20160111_1539.jar')
-    compile files('libs/wup-1.0.0.E-SNAPSHOT.jar')
-    compile files('libs/jg_filter_sdk_1.1.jar')
+    //信鸽jar
+    compile 'com.tencent.xinge:xinge:3.1.2-release'
+    //wup包
+    compile 'com.tencent.wup:wup:1.0.0.E-release'
+    //mid包
+    compile 'com.tencent.mid:mid:3.9.0-release'
 }

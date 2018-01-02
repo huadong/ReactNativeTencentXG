@@ -1,3 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kh.tencentxg">
+    <application>
+        <!-- tencent XG -->
+        <receiver android:name="com.kh.tencentxg.XGMessageReceiver">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
+            </intent-filter>
+        </receiver>
+    </application>
 </manifest>
